@@ -2,7 +2,7 @@
 
 ## Sobre
 
-Esse repositorio possui códigos apresentados na aula de Laboratorio de Desenvolvimento para Dispositiveis Moveis, no 4º período da faculdade de Engenharia de Compuatçao da PUC Minas.
+Esse repositório possui códigos apresentados na aula de Laboratório de Desenvolvimento para Dispositivos Móveis, no 4º período da faculdade de Engenharia de Computação da PUC Minas.
 
 ## Clonar projeto
 
