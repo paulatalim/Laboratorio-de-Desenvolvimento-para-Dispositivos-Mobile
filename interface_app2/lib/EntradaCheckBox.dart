@@ -21,31 +21,36 @@ class _EntradaCheckBoxState extends State<EntradaCheckBox> {
                 title: Text("Leite"),
                 secondary: Icon(Icons.add_box),
                 value: _leite,
-                onChanged: (bool valor){
+                onChanged: (valor) {
                   setState(() {
-                    _leite = valor;
+                    if (valor == true) {
+                      _leite = true;
+                    } else {
+                      _leite = false;
+                    }
                   });
-                }
-            ),
+                }),
             CheckboxListTile(
                 title: Text("Pão"),
                 secondary: Icon(Icons.add_box),
                 value: _pao,
-                onChanged: (bool valor){
+                onChanged: (valor) {
                   setState(() {
-                    _pao = valor;
+                    if (valor == true) {
+                      _pao = true;
+                    } else {
+                      _pao = false;
+                    }
                   });
-                }
-            ),
+                }),
             ElevatedButton(
                 child: Text("Salvar"),
-                onPressed: (){
-                  print(
-                      " Leite: " +_leite.toString() +
-                          " Pão: " +_pao.toString()
-                  );
-                }
-            ),
+                onPressed: () {
+                  print(" Leite: " +
+                      _leite.toString() +
+                      " Pão: " +
+                      _pao.toString());
+                }),
             /* Text("Leite"),
             Checkbox(
               value: _selecionado,

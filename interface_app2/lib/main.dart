@@ -8,9 +8,9 @@ import 'EntradaSwitch.dart';
 void main() {
   runApp(MaterialApp(
     //home: CampoTexto(),
-    home: EntradaCheckBox(),
+    // home: EntradaCheckBox(),
     //home: EntradaRadioButton(),
     //home: EntradaSwitch(),
-    //home: EntradaSlider(),
+    home: EntradaSlider(),
   ));
 }

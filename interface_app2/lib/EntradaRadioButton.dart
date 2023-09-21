@@ -6,7 +6,7 @@ class EntradaRadioButton extends StatefulWidget {
 }
 
 class _EntradaRadioButtonState extends State<EntradaRadioButton> {
-  String _selecionado;
+  String _selecionado = "";
 
   @override
   Widget build(BuildContext context) {
@@ -25,9 +25,9 @@ class _EntradaRadioButtonState extends State<EntradaRadioButton> {
               title: Text("Sim"),
               value: "sim",
               groupValue: _selecionado,
-              onChanged: (String escolha){
+              onChanged: (escolha) {
                 setState(() {
-                  _selecionado = escolha;
+                  // _selecionado = escolha;
                 });
               },
             ),
@@ -35,18 +35,17 @@ class _EntradaRadioButtonState extends State<EntradaRadioButton> {
               title: Text("Não"),
               value: "nao",
               groupValue: _selecionado,
-              onChanged: (String escolha){
+              onChanged: (escolha) {
                 setState(() {
-                  _selecionado = escolha;
+                  // _selecionado = escolha;
                 });
               },
             ),
             ElevatedButton(
                 child: Text("Salvar"),
-                onPressed: (){
+                onPressed: () {
                   print("Item selecionado: " + _selecionado);
-                }
-                ),
+                }),
             /*
             Text("Masculino"),
             Radio(
