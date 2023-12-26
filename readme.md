@@ -8,7 +8,7 @@ Esse repositório possui códigos apresentados na aula de Laboratório de Desenv
 
 - [Entrada de dados](./interface_app2/)
 - [Menu de navegação](./navegacao_telas_app/)
-- [Preferencia de dados](./dados_preferencia_app/)
+- [Preferência de dados](./preferencia_dados/)
 
 ## Clonar projeto
 
