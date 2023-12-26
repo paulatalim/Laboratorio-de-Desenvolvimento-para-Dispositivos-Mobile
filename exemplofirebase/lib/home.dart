@@ -2,15 +2,16 @@ import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
 
 class Home extends StatefulWidget {
-  Home({Key? key, this.title}) : super(key: key);
+  const Home({super.key, this.title});
+
   final String? title;
 
   @override
-  _HomeState createState() => _HomeState();
+  State<Home> createState() => _HomeState();
 }
 
 class _HomeState extends State<Home> {
-  final dbRef = FirebaseDatabase.instance.reference().child("animais");
+  final dbRef = FirebaseDatabase.instance.ref().child("animais");
   List<Map<dynamic, dynamic>> lista = [];
   @override
   Widget build(BuildContext context) {
@@ -27,7 +28,7 @@ class _HomeState extends State<Home> {
                 values.forEach((key, values) {
                   lista.add(values);
                 });
-                return new ListView.builder(
+                return ListView.builder(
                     shrinkWrap: true,
                     itemCount: lista.length,
                     itemBuilder: (BuildContext context, int index) {
@@ -39,15 +40,15 @@ class _HomeState extends State<Home> {
                             Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: <Widget>[
-                                Text("Nome: " + lista[index]["nome"]),
-                                Text("Idade: " + lista[index]["idade"]),
-                                Text("Tipo: " + lista[index]["tipo"]),
+                                Text("Nome: ${lista[index]["nome"]}"),
+                                Text("Idade: ${lista[index]["idade"]}"),
+                                Text("Tipo: ${lista[index]["tipo"]}"),
                               ],
                             ),
                           ],  ), );
                     });
               }
-              return CircularProgressIndicator();
+              return const CircularProgressIndicator();
             }
             )
     );

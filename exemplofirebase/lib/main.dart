@@ -1,4 +1,3 @@
-
 import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
 import 'home.dart';
@@ -6,30 +5,24 @@ import 'home.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
-  runApp(MeuApp());
-}
-
-class MeuApp extends StatelessWidget {
-  // This widget is the root of your application.
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
+  runApp(MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Animais',
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: Principal(title: 'Registrar Animal'),
-    );
-  }
+      home: const Principal(title: 'Registrar Animal'),
+    )
+  );
 }
 
 class Principal extends StatefulWidget {
-  Principal({Key? key, this.title}) : super(key: key);
-  final String? title;
+  const Principal({super.key, required this.title});
+
+  final String title;
 
   @override
-  _PrincipalState createState() => _PrincipalState();
+  State<Principal> createState() => _PrincipalState();
 }
 
 class _PrincipalState extends State<Principal> {
@@ -37,9 +30,9 @@ class _PrincipalState extends State<Principal> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(widget.title!),
+        title: Text(widget.title),
       ),
-      body: Center(
+      body: const Center(
           child: SingleChildScrollView(
             child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -56,11 +49,12 @@ class _PrincipalState extends State<Principal> {
     );
   }
 }
+
 class RegistrarAnimal extends StatefulWidget {
-  RegistrarAnimal({Key? key}) : super(key: key);
+  const RegistrarAnimal({super.key});
 
   @override
-  _RegistrarAnimalState createState() => _RegistrarAnimalState();
+  State<RegistrarAnimal> createState() => _RegistrarAnimalState();
 }
 
 class _RegistrarAnimalState extends State<RegistrarAnimal> {
@@ -69,7 +63,14 @@ class _RegistrarAnimalState extends State<RegistrarAnimal> {
   String? valorPadraoMenu = 'Cachorros';
   final nomeController = TextEditingController();
   final idadeController = TextEditingController();
-  final dbRef = FirebaseDatabase.instance.reference().child("animais");
+  final dbRef = FirebaseDatabase.instance.ref().child("animais");
+
+  @override
+  void dispose() {
+    super.dispose();
+    idadeController.dispose();
+    nomeController.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -78,7 +79,7 @@ class _RegistrarAnimalState extends State<RegistrarAnimal> {
         child: SingleChildScrollView(
             child: Column(children: <Widget>[
               Padding(
-                padding: EdgeInsets.all(20.0),
+                padding: const EdgeInsets.all(20.0),
                 child: TextFormField(
                   controller: nomeController,
                   decoration: InputDecoration(
@@ -97,10 +98,10 @@ class _RegistrarAnimalState extends State<RegistrarAnimal> {
                 ),
               ),
               Padding(
-                padding: EdgeInsets.all(20.0),
+                padding: const EdgeInsets.all(20.0),
                 child: DropdownButtonFormField(
                   value: valorPadraoMenu,
-                  icon: Icon(Icons.arrow_downward),
+                  icon: const Icon(Icons.arrow_downward),
                   decoration: InputDecoration(
                     labelText: "Selecione o tipo",
                     enabledBorder: OutlineInputBorder(
@@ -108,9 +109,9 @@ class _RegistrarAnimalState extends State<RegistrarAnimal> {
                     ),
                   ),
                   items: listadePets.map((String value) {
-                    return new DropdownMenuItem<String>(
+                    return DropdownMenuItem<String>(
                       value: value,
-                      child: new Text(value),
+                      child: Text(value),
                     );
                   }).toList(),
                   onChanged: (String? newValue) {
@@ -127,7 +128,7 @@ class _RegistrarAnimalState extends State<RegistrarAnimal> {
                 ),
               ),
               Padding(
-                padding: EdgeInsets.all(20.0),
+                padding: const EdgeInsets.all(20.0),
                 child: TextFormField(
                   keyboardType: TextInputType.number,
                   controller: idadeController,
@@ -147,7 +148,7 @@ class _RegistrarAnimalState extends State<RegistrarAnimal> {
                 ),
               ),
               Padding(
-                  padding: EdgeInsets.all(20.0),
+                  padding: const EdgeInsets.all(20.0),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: <Widget>[
@@ -160,7 +161,7 @@ class _RegistrarAnimalState extends State<RegistrarAnimal> {
                               "tipo": valorPadraoMenu
                             }).then((_) {
                               ScaffoldMessenger.of(context).showSnackBar(
-                                  SnackBar(content: Text('Adicionado')));
+                                  const SnackBar(content: Text('Adicionado')));
                               idadeController.clear();
                               nomeController.clear();
                             }).catchError((onError) {
@@ -169,27 +170,20 @@ class _RegistrarAnimalState extends State<RegistrarAnimal> {
                             });
                           }
                         },
-                        child: Text('Enviar'),
+                        child:const Text('Enviar'),
                       ),
                       ElevatedButton(
                         onPressed: () {
                           Navigator.push(
                             context,
                             MaterialPageRoute(
-                                builder: (context) => Home(title: "Principal")),
+                                builder: (context) => const Home(title: "Principal")),
                           );
                         },
-                        child: Text('Verificar'),
+                        child: const Text('Verificar'),
                       ),
                     ],
                   )),
             ])));
-  }
-
-  @override
-  void dispose() {
-    super.dispose();
-    idadeController.dispose();
-    nomeController.dispose();
   }
 }
