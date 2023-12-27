@@ -10,6 +10,7 @@ Esse repositório possui códigos apresentados na aula de Laboratório de Desenv
 - [Menu de navegação](./navegacao_telas_app/)
 - [Preferência de dados](./preferencia_dados/)
 - [SQL Lite](./sqlite/)
+- [Web Service](./web_service/)
 
 ## Clonar projeto
 
