@@ -36,7 +36,7 @@ class Armazenamento {
     return database;
   }
 
-  dynamic salvarDados(String nome, int idade) async {
+  void salvarDados(String nome, int idade) async {
     database = await _recuperarBancoDados();
     // Criptografa as informacoes sensiveis
     // var criptoidade = criptografar(idade);
@@ -62,6 +62,7 @@ class Armazenamento {
       print(
           " id: ${usu['id'].toString()} nome: ${usu['nome']} idade: ${usu['idade'].toString()}");
     }
+    return usuarios;
   }
 
   dynamic listarUmUsuario(int id) async {
@@ -77,6 +78,8 @@ class Armazenamento {
       print(
           " id: ${usu['id'].toString()} nome: ${usu['nome']} idade: ${usu['idade'].toString()}");
     }
+
+    return usuarios;
   }
 
   void excluirUsuario(int id) async {
@@ -84,7 +87,7 @@ class Armazenamento {
     int retorno = await database!.delete("usuarios",
         where: "id = ?", //caracter curinga
         whereArgs: [id]);
-    print("Itens excluidos: " + retorno.toString());
+    print("Itens excluidos: ${retorno.toString()}");
   }
 
   dynamic atualizarUsuario(int id) async {
@@ -97,11 +100,13 @@ class Armazenamento {
     int retorno = await database!.update("usuarios", dadosUsuario,
         where: "id = ?", //caracter curinga
         whereArgs: [id]);
-    print("Itens atualizados: " + retorno.toString());
+    print("Itens atualizados: ${retorno.toString()}");
+    
+    return retorno;
   }
 
   /// Criptografa informacoes sensiveis
-  dynamic _criptografar(var atribute) {
+  dynamic criptografar(var atribute) {
     // Converte a varivel para string e depois para bytes
     var bytes = utf8.encode(atribute.toString());
 
