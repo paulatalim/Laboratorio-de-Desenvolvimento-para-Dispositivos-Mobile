@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:nomeando_rotas_app/SegundaTela.dart';
+import './SegundaTela.dart';
 
 void main(){
   runApp(MaterialApp(
@@ -7,13 +7,15 @@ void main(){
     routes: {
       "/segunda": (context) => SegundaTela(),
     },
-    home: PrimeiraTela(),
+    home: const PrimeiraTela(),
   ));
 }
 
 class PrimeiraTela extends StatefulWidget {
+  const PrimeiraTela({super.key});
+
   @override
-  _PrimeiraTelaState createState() => _PrimeiraTelaState();
+  State<PrimeiraTela> createState() => _PrimeiraTelaState();
 }
 
 class _PrimeiraTelaState extends State<PrimeiraTela> {
@@ -21,22 +23,20 @@ class _PrimeiraTelaState extends State<PrimeiraTela> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Primeira Tela"),
+        title: const  Text("Primeira Tela"),
       ),
-      body: Container(
-        child: Column(
-          children: <Widget>[
-            ElevatedButton(
-              child: Text("Ir para a segunda tela"),
-              onPressed: () {
-                Navigator.pushNamed(
-                  context,
-                  "/segunda",
-                );
-              },
-            ),
-          ],
-        ),
+      body:  Column(
+        children: <Widget>[
+          ElevatedButton(
+            child: const Text("Ir para a segunda tela"),
+            onPressed: () {
+              Navigator.pushNamed(
+                context,
+                "/segunda",
+              );
+            },
+          ),
+        ],
       ),
     );
   }
