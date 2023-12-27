@@ -1,14 +1,16 @@
-import 'package:shared_preferences/shared_preferences.dart';
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class Home extends StatefulWidget {
+  const Home({super.key});
+
   @override
-  _HomeState createState() => _HomeState();
+  State<Home> createState() => _HomeState();
 }
 
 class _HomeState extends State<Home> {
   String _textoSalvo = "Nada salvo!";
-  TextEditingController _textController = TextEditingController();
+  final TextEditingController _textController = TextEditingController();
   //o método será assincrono, ou seja, ao salvar os dados não necessariamente serão salvos de forma instantânea
   //executado de forma paralela
   _salvarDados() async{
@@ -34,46 +36,46 @@ class _HomeState extends State<Home> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Persistência de dados"),
+        title: const Text("Persistência de dados"),
       ),
       body: Container(
-        padding: EdgeInsets.all(16),
+        padding: const EdgeInsets.all(16),
         child: Column(
           children: <Widget>[
             TextField(
-              decoration: InputDecoration(
+              decoration: const InputDecoration(
                 labelText: "Digite o nome: ",
               ),
               controller: _textController,
             ),
-            SizedBox(height: 16,),
+            const SizedBox(height: 16,),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
                 ElevatedButton(
-                  child: Text("Salvar"),
                   onPressed: _salvarDados,
+                  child: const Text("Salvar"),
                 ),
-                SizedBox(width: 16,),
+                const SizedBox(width: 16,),
                 ElevatedButton(
-                  child: Text("Recuperar"),
                   onPressed: _recuperarDados,
+                  child: const Text("Recuperar"),
                 ),
-                SizedBox(width: 16,),
+                const SizedBox(width: 16,),
                 ElevatedButton(
-                  child: Text("Remover"),
                   onPressed: _removerDados,
+                  child: const Text("Remover"),
                 ),
               ],
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
-                Padding(
+                const Padding(
                   padding: EdgeInsets.only(top: 100),
                 ),
                 Text(_textoSalvo,
-                  style: TextStyle(
+                  style: const TextStyle(
                     fontSize: 20,
                     color: Colors.red,
                   ),
