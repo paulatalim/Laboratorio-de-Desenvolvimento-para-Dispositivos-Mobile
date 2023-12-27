@@ -8,8 +8,11 @@ Esse repositório possui códigos apresentados na aula de Laboratório de Desenv
 
 - [Entrada de dados](./interface_app2/)
 - [Menu de navegação](./navegacao_telas_app/)
+- [Rotas](./nomeando_rotas/)
 - [Preferência de dados](./preferencia_dados/)
 - [SQL Lite](./sqlite/)
+- [Lista SQL Lite](./list_sqlite/)
+- [Lista](./list/)
 - [Web Service](./web_service/)
 
 ## Clonar projeto
