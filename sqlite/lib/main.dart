@@ -1,13 +1,17 @@
 import './armazenamento.dart';
 import 'package:flutter/material.dart';
 
-void main() => runApp(MaterialApp(
+void main() => runApp(
+  const MaterialApp(
       home: Home(),
-    ));
+    )
+  );
 
 class Home extends StatefulWidget {
+  const Home({super.key});
+
   @override
-  _HomeState createState() => _HomeState();
+  State<Home> createState() => _HomeState();
 }
 
 class _HomeState extends State<Home> {
@@ -15,30 +19,30 @@ class _HomeState extends State<Home> {
 
   @override
   Widget build(BuildContext context) {
-    TextEditingController _controllernome = TextEditingController();
-    TextEditingController _controlleridade = TextEditingController();
+    TextEditingController controllernome = TextEditingController();
+    TextEditingController controlleridade = TextEditingController();
     return Scaffold(
       appBar: AppBar(
-        title: Text("Banco de dados"),
+        title: const Text("Banco de dados"),
       ),
       body: Container(
-        padding: EdgeInsets.all(16),
+        padding: const EdgeInsets.all(16),
         width: double.infinity,
         child: Column(
           children: <Widget>[
             TextField(
-              decoration: InputDecoration(
+              decoration: const InputDecoration(
                 labelText: "Digite o nome: ",
               ),
-              controller: _controllernome,
+              controller: controllernome,
             ),
             TextField(
-              decoration: InputDecoration(
+              decoration: const InputDecoration(
                 labelText: "Digite a idade: ",
               ),
-              controller: _controlleridade,
+              controller: controlleridade,
             ),
-            SizedBox(
+            const SizedBox(
               height: 20,
             ),
             Column(
@@ -46,28 +50,28 @@ class _HomeState extends State<Home> {
               crossAxisAlignment: CrossAxisAlignment.center,
               children: <Widget>[
                 ElevatedButton(
-                    child: Text("Salvar um usuário"),
+                    child: const Text("Salvar um usuário"),
                     onPressed: () {
-                      storage.salvarDados(_controllernome.text,
-                          int.parse(_controlleridade.text));
+                      storage.salvarDados(controllernome.text,
+                          int.parse(controlleridade.text));
                     }),
                 ElevatedButton(
-                    child: Text("Listar todos usuários"),
+                    child: const Text("Listar todos usuários"),
                     onPressed: () {
                       storage.listarUsuarios();
                     }),
                 ElevatedButton(
-                    child: Text("Listar um usuário"),
+                    child: const Text("Listar um usuário"),
                     onPressed: () {
                       storage.listarUmUsuario(2);
                     }),
                 ElevatedButton(
-                    child: Text("Atualizar um usuário"),
+                    child: const Text("Atualizar um usuário"),
                     onPressed: () {
                       storage.atualizarUsuario(2);
                     }),
                 ElevatedButton(
-                    child: Text("Excluir usuário"),
+                    child: const Text("Excluir usuário"),
                     onPressed: () {
                       storage.excluirUsuario(2);
                     }),
