@@ -147,7 +147,7 @@ class _HomeState extends State<Home> {
                 ElevatedButton(
                     child: Text("Listar todos usuários"),
                     onPressed: () {
-                      // storage.listarUsuarios();
+                      storage.listarUsuarios();
                     }),
                 ElevatedButton(
                     child: Text("Listar um usuário"),
@@ -157,12 +157,12 @@ class _HomeState extends State<Home> {
                 ElevatedButton(
                     child: Text("Atualizar um usuário"),
                     onPressed: () {
-                      // storage.atualizarUsuario(2);
+                      storage.atualizarUsuario(2);
                     }),
                 ElevatedButton(
                     child: Text("Excluir usuário"),
                     onPressed: () {
-                      // storage.excluirUsuario(2);
+                      storage.excluirUsuario(2);
                     }),
               ],
             ),
