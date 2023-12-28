@@ -31,7 +31,7 @@ class _CampoTextoState extends State<CampoTexto> {
           ElevatedButton(
             child: Text("Salvar"),
             style: ElevatedButton.styleFrom(
-              primary: Colors.green,
+              backgroundColor: Colors.green,
             ),
             onPressed: (){
               print("Texto digitado: " + _textEditingController.text);

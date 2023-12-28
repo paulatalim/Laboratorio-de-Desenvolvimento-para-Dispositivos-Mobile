@@ -17,19 +17,19 @@ class _HomeState extends State<Home> {
     String valorDigitado = _textController.text;
     final prefs = await SharedPreferences.getInstance();
     await prefs.setString("nome", valorDigitado); // a chave será usada para recuperar dados
-    print("Operação salvar: $valorDigitado");
+    debugPrint("Operação salvar: $valorDigitado");
   }
   _recuperarDados() async{
     final prefs = await SharedPreferences.getInstance();
     setState(() {
       _textoSalvo = prefs.getString("nome") ?? "Sem valor";
     });
-    print("Operação recuperar: $_textoSalvo");
+    debugPrint("Operação recuperar: $_textoSalvo");
   }
   _removerDados() async{
     final prefs = await SharedPreferences.getInstance();
     prefs.remove("nome");
-    print("Operação remover");
+    debugPrint("Operação remover");
   }
 
   @override

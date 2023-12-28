@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import './SegundaTela.dart';
+import 'segunda_tela.dart';
 
 void main(){
   runApp(MaterialApp(
     initialRoute: "/",
     routes: {
-      "/segunda": (context) => SegundaTela(),
+      "/segunda": (context) => const SegundaTela(),
     },
     home: const PrimeiraTela(),
   ));
