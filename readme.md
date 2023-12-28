@@ -8,20 +8,20 @@ Esse repositório possui códigos apresentados na aula de Laboratório de Desenv
 
 ### Interface
 
-- [Entrada de dados](./interface_app2/)
-- [Menu de navegação](./navegacao_telas_app/)
-- [Rotas](./nomeando_rotas/)
-- [Lista](./list/)
+- [Entrada de dados](./exemplos/interface_app2/)
+- [Menu de navegação](./exemplos/navegacao_telas_app/)
+- [Rotas](./exemplos/nomeando_rotas/)
+- [Lista](./exemplos/list/)
 
 ### Banco de Dados
 
-- [Preferência de dados](./preferencia_dados/)
-- [SQL Lite](./sqlite/)
-- [Lista SQL Lite](./list_sqlite/)
+- [Preferência de dados](./exemplos/preferencia_dados/)
+- [SQL Lite](./exemplos/sqlite/)
+- [Lista SQL Lite](./exemplos/list_sqlite/)
 
 ### API
 
-- [Web Service](./web_service/)
+- [Web Service](./exemplos/web_service/)
 
 ## Clonar projeto
 
