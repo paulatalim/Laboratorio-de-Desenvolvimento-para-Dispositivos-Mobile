@@ -63,7 +63,7 @@ class _RegistrarAnimalState extends State<RegistrarAnimal> {
   String? valorPadraoMenu = 'Cachorros';
   final nomeController = TextEditingController();
   final idadeController = TextEditingController();
-  final dbRef = FirebaseDatabase.instance.reference().child("animais");
+  final dbRef = FirebaseDatabase.instance.ref().child("animais");
 
   @override
   void dispose() {
