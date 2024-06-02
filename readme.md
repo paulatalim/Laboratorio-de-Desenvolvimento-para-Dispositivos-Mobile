@@ -26,10 +26,10 @@ Esse repositório possui códigos apresentados na aula de Laboratório de Desenv
 ## Clonar projeto
 
 ```
-git clone https://github.com/paulatalim/LDDM_exemplos.git
+git clone https://github.com/paulatalim/Laboratorio-de-Desenvolvimento-para-Dispositivos-Mobile.git
 ```
 ```
-cd LDDM_exemplos
+cd Laboratorio-de-Desenvolvimento-para-Dispositivos-Mobile
 ```
 
 ## Créditos
