@@ -18,6 +18,7 @@ Esse repositório possui códigos apresentados na aula de Laboratório de Desenv
 - [Preferência de dados](./exemplos/preferencia_dados/)
 - [SQL Lite](./exemplos/sqlite/)
 - [Lista SQL Lite](./exemplos/list_sqlite/)
+- [Firebase](./exemplos/firebase/)
 
 ### API
 
